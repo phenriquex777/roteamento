@@ -1,0 +1,72 @@
+npm install react-router-dom
+// src/components/NavegacaoTelas.js
+import React from 'react';
+import { Link, Route, BrowserRouter as Router } from 'react-router-dom';
+import TelaUm from './TelaUm';
+import TelaDois from './TelaDois';
+
+function NavegacaoTelas() {
+  return (
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/telaUm">Tela Um</Link>
+            </li>
+            <li>
+              <Link to="/telaDois">Tela Dois</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <hr />
+
+        <Route path="/telaUm" component={TelaUm} />
+        <Route path="/telaDois" component={TelaDois} />
+      </div>
+    </Router>
+  );
+}
+
+export default NavegacaoTelas;
+// src/components/TelaUm.js
+import React from 'react';
+
+function TelaUm() {
+  return (
+    <div>
+      <h2>Tela Um</h2>
+      <p>Conteúdo da Tela Um</p>
+    </div>
+  );
+}
+
+export default TelaUm;
+// src/components/TelaDois.js
+import React from 'react';
+
+function TelaDois() {
+  return (
+    <div>
+      <h2>Tela Dois</h2>
+      <p>Conteúdo da Tela Dois</p>
+    </div>
+  );
+}
+
+export default TelaDois;
+// src/App.js
+import React from 'react';
+import NavegacaoTelas from './components/NavegacaoTelas';
+
+function App() {
+  return (
+    <div className="App">
+      <h1>Exemplo de Roteamento</h1>
+      <NavegacaoTelas />
+    </div>
+  );
+}
+
+export default App;
